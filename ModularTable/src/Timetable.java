@@ -22,7 +22,7 @@ public class Timetable {
     public static TreeSet<String> Sections = new TreeSet<String>();
     public static TreeSet<String> Courses = new TreeSet<String>();
     public static ArrayList<HashMap<slotKey,Slot>> days = new ArrayList<HashMap<slotKey, Slot>>();
-    private final String[] dayDict = {"Monday","Tuesday","Wednesday","Thursday","Friday"};
+    private final String[] dayDict = {"Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
     private final Color[] ClashColors = {new Color(169, 50, 38), new Color(146, 43, 33), new Color(176, 58, 46),new Color(148, 49, 38)};
     Random rnd = new Random();
     
@@ -298,6 +298,7 @@ public class Timetable {
                 for (int k = 0; k < timeSlots.get(i).size(); k++) {
                     Slot slot = days.get(i).get(new slotKey(venues.get(i).get(j - 1), timeSlots.get(i).get(k)));
                     row.createCell(k + 1);
+                    System.out.println(slot.getclass() + " ");
                     if (parameters.contains(slot.getclass())) {
                         Counter.get(k).add(new CellList(i,j, k+1));
                         row.getCell(k + 1).setCellValue(helper.createRichTextString(slot.values()));
@@ -384,6 +385,7 @@ public class Timetable {
                         if(slotdata == null || slotdata.getCellType() == CellType.BLANK || slotdata.getStringCellValue().equals("Jumma Prayers"))
                         {
                             Slot slot = new Slot();
+                            key.print();
                             slotMap.put(key, slot);
                             System.out.println("empty");
                         }
@@ -392,9 +394,10 @@ public class Timetable {
                             System.out.println(slotdata.getStringCellValue());
                             String[] slotValues = (slotdata.getStringCellValue()).split("\n");
                             Slot slot = new Slot(slotValues[0], slotValues[1], slotValues[2]);
-                            Courses.add(slotValues[0]+" "+slotValues[1]);
-                            Sections.add(slotValues[1]);
-                            Teachers.add(slotValues[2]);
+                            Courses.add(slotValues[0]+" "+slotValues[2]);
+                            Teachers.add(slotValues[1]);
+                            Sections.add(slotValues[2]);
+                            key.print();
                             slotMap.put(key, slot);
                             
                         }

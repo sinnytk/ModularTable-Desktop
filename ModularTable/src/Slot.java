@@ -6,7 +6,7 @@ public class Slot
 
 
 
-    public Slot(String _course, String _class, String _teacher)
+    public Slot(String _course, String _teacher, String _class)
     {
         this._teacher = _teacher;
         this._course = _course;
