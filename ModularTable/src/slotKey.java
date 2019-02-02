@@ -22,7 +22,7 @@ public class slotKey
     {
         int room = Integer.parseInt(venue.substring(3));
         room*=100;
-        int time = Integer.parseInt(timeslot.substring(0,2));
+        int time = Integer.parseInt(timeslot.substring(0,2) + timeslot.substring(3,5));
         int result = room+time;
         return result;
     }

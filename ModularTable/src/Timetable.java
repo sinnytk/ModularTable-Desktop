@@ -306,7 +306,6 @@ public class Timetable {
                     } 
                     else if(slot.isEmpty() && !(i==4 && k==4))
                     {
-//                        row.getCell(k+1).setCellValue(helper.createRichTextString("Unoccupied"));
                         row.getCell(k+1).setCellStyle(highlighted);
                     }
                     else 
@@ -385,7 +384,6 @@ public class Timetable {
                         if(slotdata == null || slotdata.getCellType() == CellType.BLANK || slotdata.getStringCellValue().equals("Jumma Prayers"))
                         {
                             Slot slot = new Slot();
-                            key.print();
                             slotMap.put(key, slot);
                             System.out.println("empty");
                         }
@@ -397,7 +395,6 @@ public class Timetable {
                             Courses.add(slotValues[0]+" "+slotValues[2]);
                             Teachers.add(slotValues[1]);
                             Sections.add(slotValues[2]);
-                            key.print();
                             slotMap.put(key, slot);
                             
                         }
